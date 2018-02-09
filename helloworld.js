@@ -28,6 +28,7 @@ http.createServer(function (request, response) {
       DetailType: "hellworld application access request",
       Source: "helloworld.app"
     }] 
+  }
 
   var metric = {
     MetricData: [{
@@ -42,13 +43,13 @@ http.createServer(function (request, response) {
     Namespace: "Helloworld/traffic"
   }
 
-   // Send the HTTP header
-   // HTTP Status: 200 : OK
-   // Content Type: text/plain
-   response.writeHead(200, {'Content-Type': 'text/plain'})
+  // Send the HTTP header
+  // HTTP Status: 200 : OK
+  // Content Type: text/plain
+  response.writeHead(200, {'Content-Type': 'text/plain'})
 
-   // Send the response body as "Hello World"
-   response.end('Hello World\n')
+  // Send the response body as "Hello World"
+  response.end('Hello World\n')
   cwevents.putEvents(event, function(err, data) {
     if (err) {
       logger.error("error", "an error occurred when creating an event", {error: err})
